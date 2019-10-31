@@ -10,7 +10,7 @@ def show
 end
 
 def new
-  @user = User.new
+  @user_create = User.new
 end
 
 def create

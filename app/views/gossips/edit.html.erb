@@ -6,6 +6,7 @@ body
    background-attachment:fixed;}
 </style>
 <body style="color:white;">
+  <center>
 <% if @gossip.errors.any? %>
       <p>Nous n'avons pas réussi à modifier le potin pour la (ou les) raison(s) suivante(s) :</p>
       <ul>
@@ -31,4 +32,5 @@ body
   <%= submit_tag "Modifier le Post" %>
 
 <% end %>
+</center>
 </body>

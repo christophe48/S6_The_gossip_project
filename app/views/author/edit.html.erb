@@ -15,7 +15,7 @@ body
       <p>Nous n'avons pas réussi à modifier votre profil pour la (ou les) raison(s) suivante(s) :</p>
       <ul>
         <% @user.errors.full_messages.each do |message| %>
-          <li style="color-red;"><%= message %></li>
+          <li style="color:red;"><%= message %></li>
         <% end %>
       </ul>
 <% end %>

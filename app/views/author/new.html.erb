@@ -12,6 +12,14 @@ body
 <h1> Rejoins la communauté des ragots infondés </h1>
 <br/>
 
+<% if @user_create.errors.any? %>
+      <p>Nous n'avons pas réussi à créer votre profil pour la (ou les) raison(s) suivante(s) :</p>
+      <ul>
+        <% @user_create.errors.full_messages.each do |message| %>
+          <li style="color:red;"><%= message %></li>
+        <% end %>
+      </ul>
+<% end %>
 
 <%= form_tag url_for(action: 'create'), method: "post" do %>
 
