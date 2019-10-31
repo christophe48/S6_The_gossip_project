@@ -5,12 +5,12 @@ body
    background-size:cover;
    background-attachment:fixed;}
 </style>
-<body>
+<body style="color:white;">
 <% if @gossip.errors.any? %>
       <p>Nous n'avons pas réussi à modifier le potin pour la (ou les) raison(s) suivante(s) :</p>
       <ul>
         <% @gossip.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+          <li style="color:red;"><%= message %></li>
         <% end %>
       </ul>
 <% end %>

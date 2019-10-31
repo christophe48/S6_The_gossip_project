@@ -10,7 +10,7 @@ def show
 end
 
 def new
-  @user =current_user
+  @user = User.new
 end
 
 def create
@@ -25,15 +25,15 @@ def create
 end
 
 def edit
-  @user =current_user
+  @user = current_user
 end
 
 def update
   @user = User.find(params[:id])
 #j'applique la modif à moins que compare_user est faux (voir applicationController)
-  unless compare_user(session[:user_id], @user.user_id) == false
-    if @user.update(first_name: params[:first_name], last_name: params[:last_name], age: params[:age], description: params[:description])
-      redirect_to author_path
+  unless compare_user(session[params[:user_id]], params[:user_id]) == false
+    if @user.update(first_name: params[:first_name], last_name: params[:last_name], age: params[:age], description: params[:description], password: :password_confirmation)
+      redirect_to gossips_path
     else
       render :edit
     end

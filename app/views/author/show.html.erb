@@ -17,6 +17,12 @@ body
     <p class="card-text">Age : <%= @user.age %> </p>
     <p class="card-text">email : <%= @user.email %></p>
     <a class="" href="<%= city_path(@user.city_id) %>">City : <%= @city.find(@user.city_id).name %> </a>
+
+    <% if current_user && (session[params[:user_id]] == params[:user_id]) %>
+    <a class="btn btn-outline-danger" href="<%= edit_author_path %>"> Modifie ton profil </a>
+    <% end %>
+    <br/><br/>
+
   </div>
 </div>
 </body>
