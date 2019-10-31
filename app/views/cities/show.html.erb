@@ -14,9 +14,10 @@ body
 
 <br>
 <body>
+  <center>
   <div class="">
   <% a = @users.where(city: @cities.id) %>
-  <p>Liste des potins de la ville</p>
+    <p>Liste des potins de la ville</p>
   <% a.each do |t|%>
       <div class="card mx-auto" style="width: 18rem;"">
         <div class="card-body">
@@ -29,4 +30,5 @@ body
       </div>
       <%end%>
     </div>
+  </center>
 </body>
