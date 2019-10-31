@@ -10,7 +10,7 @@ def show
 end
 
 def new
-  # Méthode qui crée un potin vide et l'envoie à une view qui affiche le formulaire pour 'le remplir' (new.html.erb)
+  @user =current_user
 end
 
 def create
@@ -25,13 +25,19 @@ def create
 end
 
 def edit
-  # Méthode qui récupère le potin concerné et l'envoie à la view edit (edit.html.erb) pour affichage dans un formulaire d'édition
+  @user =current_user
 end
 
 def update
-  # Méthode qui met à jour le potin à partir du contenu du formulaire de edit.html.erb, soumis par l'utilisateur
-  # pour info, le contenu de ce formulaire sera accessible dans le hash params
-  # Une fois la modification faite, on redirige généralement vers la méthode show (pour afficher le potin modifié)
+  @user = User.find(params[:id])
+#j'applique la modif à moins que compare_user est faux (voir applicationController)
+  unless compare_user(session[:user_id], @user.user_id) == false
+    if @user.update(first_name: params[:first_name], last_name: params[:last_name], age: params[:age], description: params[:description])
+      redirect_to author_path
+    else
+      render :edit
+    end
+  end
 end
 
 def destroy

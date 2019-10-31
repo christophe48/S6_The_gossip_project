@@ -9,18 +9,16 @@ body
 <body>
 <center>
 <br/> <br/>
-<h1> Rejoins la communauté des ragots infondés </h1>
+<h1> Modifie ton profil </h1>
 <br/>
-
 <% if @user.errors.any? %>
-      <p>Nous n'avons pas réussi à creer votre profil pour la (ou les) raison(s) suivante(s) :</p>
+      <p>Nous n'avons pas réussi à modifier votre profil pour la (ou les) raison(s) suivante(s) :</p>
       <ul>
         <% @user.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
 <% end %>
-
 
 <%= form_tag url_for(action: 'create'), method: "post" do %>
 
@@ -36,23 +34,12 @@ body
   <%= text_field_tag 'age' %>
   <br /> <br />
 
-  <%= label_tag 'Email' %>
-  <%= text_field_tag 'email' %>
-  <br /> <br />
-
   <%= label_tag 'Description' %>
   <%= text_area_tag 'description' %>
   <br /> <br />
 
-  <%= label_tag 'Password' %>
-  <%= password_field_tag 'password', nil, class: 'masked_input_field'%>
-  <br /> <br />
 
-  <%= label_tag 'Confirm Password' %>
-  <%= password_field_tag 'password_confirmation', nil, class: 'masked_input_field'%>
-  <br /> <br />
-
-  <%= submit_tag "M'inscrire" %>
+  <%= submit_tag "Modifier profil" %>
 
 <% end %>
 </center>

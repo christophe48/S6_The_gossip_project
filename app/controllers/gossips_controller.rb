@@ -12,6 +12,7 @@ class GossipsController < ApplicationController
   end
 
   def new
+    @gossip = current_user
     # Méthode qui crée un potin vide et l'envoie à une view qui affiche le formulaire pour 'le remplir' (new.html.erb)
   end
 
@@ -26,6 +27,7 @@ class GossipsController < ApplicationController
   end
 
   def edit
+    @gossip = current_user
     # Méthode qui récupère le potin concerné et l'envoie à la view edit (edit.html.erb) pour affichage dans un formulaire d'édition
   end
 

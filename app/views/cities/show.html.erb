@@ -1,3 +1,11 @@
+<style>
+body
+{background-image: url('http://4everstatic.com/images/abstrait/fond-de-couleur-220805.jpg');
+   background-repeat: no-repeat;
+   background-size:cover;
+   background-attachment:fixed;}
+</style>
+
 <div class="card text-center" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title">Ville : <%= @cities.name %></h5>
@@ -5,7 +13,7 @@
 </div>
 
 <br>
-
+<body>
   <div class="">
   <% a = @users.where(city: @cities.id) %>
   <p>Liste des potins de la ville</p>
@@ -21,3 +29,4 @@
       </div>
       <%end%>
     </div>
+</body>
