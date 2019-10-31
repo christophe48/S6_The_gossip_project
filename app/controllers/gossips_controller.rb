@@ -1,5 +1,5 @@
 class GossipsController < ApplicationController
-
+  before_action :authenticate_user, only: [:show,:new,:create,:edit,:update,:destroy]
   def index
     @gossip = Gossip.all
     @user = User.all
