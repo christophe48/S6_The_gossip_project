@@ -5,12 +5,13 @@
     <div class="card text-center mx-auto" style="width: 18rem;">
       <div class="card-body">
         <h5 class="card-title"><%= @gossip.title %></h5>
-        <h6 class="card-subtitle mb-2 text-muted"><%= tab_date.sample %></h6>
+        <h6 class="card-subtitle mb-2 text-muted"><%=@gossip.created_at.strftime("%d/%m/%Y") %></h6>
+        <h6 class="card-subtitle mb-2 text-muted">modifié le: <%=@gossip.updated_at.strftime("%d/%m/%Y")%></h6>
         <h6 class="card-subtitle mb-2 text-muted"><%= link_to @user.find(@gossip.user_id).first_name ,author_path(@gossip.user_id)%></h6>
         <p class="card-text"><%= @gossip.content %></p>
-        <a class="" href="<%=city_path(@user.find(h).city_id)%>">Ville</a><br>
+        <p class="card-text"> ville : <%=link_to "#{@city.find(@user.find(@gossip.user_id).city_id).name}", city_path(@user.find(@gossip.user_id).city_id) %></p>
         <a class="btn btn-outline-danger" href="<%= edit_gossip_path %>">Modifier le gossip</a>
-        <br><br>
+        <br/><br/>
         <%= form_tag url_for(action: 'destroy'), method: "DELETE" do %>
 
            <%= submit_tag "Supprimer le gossip" %>

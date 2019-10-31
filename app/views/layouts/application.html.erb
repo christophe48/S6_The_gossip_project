@@ -27,9 +27,13 @@
         <a class="nav-link" <%= link_to "Contact", contact_path %></a>
           </li>
         </ul>
-        <a class="nav-link" <%= link_to "Connexion", new_session_path %></a>
+        <% if current_user %>
         <a class="nav-link" <%= link_to "Deconnexion", session_path(session.id), method: :delete %></a>
+        <% else %>
+        <a class="nav-link" <%= link_to "Connexion", new_session_path %></a>
         <a class="nav-link" <%= link_to "S'inscrire", new_author_path %></a>
+        <% end %>
+
       </div>
     </nav>
 

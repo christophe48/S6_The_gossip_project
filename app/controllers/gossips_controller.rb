@@ -8,6 +8,7 @@ class GossipsController < ApplicationController
   def show
     @gossip = Gossip.find(params[:id])
     @user = User.all
+    @city = City.all
   end
 
   def new
@@ -15,7 +16,7 @@ class GossipsController < ApplicationController
   end
 
   def create
-    @gossip = Gossip.new(user_id: 1, title: params[:title], content: params[:content]) # avec xxx qui sont les données obtenues à partir du formulaire
+    @gossip = Gossip.new(user_id: session[:user_id], title: params[:title], content: params[:content]) # avec xxx qui sont les données obtenues à partir du formulaire
 
     if @gossip.save # essaie de sauvegarder en base @gossip
       redirect_to gossips_path
@@ -30,7 +31,7 @@ class GossipsController < ApplicationController
 
   def update
     @gossipp = Gossip.find(params[:id])
-    if @gossipp.update(title: params[:title], content: params[:content], user_id: 1)
+    if @gossipp.update(title: params[:title], content: params[:content])
       redirect_to gossips_path
     else
       render :edit

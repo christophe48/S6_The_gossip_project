@@ -11,7 +11,7 @@ class User < ApplicationRecord
 
 	validates :first_name, presence: {message: "Le prenom doit être renseigné !"}
 	validates :last_name, presence:  {message: "Le nom doit être renseigné !"}
-	validates :description, presence: {message: "La description doit être renseigné !"}
+	#validates :description, presence: {message: "La description doit être renseigné !"}
 	validates :email, uniqueness: {message: "l'email est deja pris !"}
 	validates :email, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "L'email doit être renseigné au bon format (email@eamil.email) !"}
 end

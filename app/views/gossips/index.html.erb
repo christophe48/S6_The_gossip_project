@@ -16,12 +16,12 @@
 <div class="card-columns">
 <% @gossip.each do |t| %>
     <div class="card card p-3 shadow" style="width: 18rem;">
-      <img src="image.jpg" class="card-img-top">
+      <img class="card-img-top" src="https://is3-ssl.mzstatic.com/image/thumb/Podcasts113/v4/dc/27/a1/dc27a1eb-2307-fe47-342e-6fb84618f5a8/mza_8792713575073991728.jpg/600x600bb.jpg" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title"><%= t.title %></h5>
         <p class="card-text"><%= t.content %></p>
         <p class="card-text text-muted">Posted by <%= @user.find(t.user_id).first_name%></p>
-        <a class="btn btn-outline-success" href="<%= gossip_path(t) %>">Continue</a>
+        <a class="btn btn-outline-success" href="<%= gossip_path(t) %>">Voir plus</a>
         <a href="<%= gossip_path(t) %>" class="btn btn-danger" data-confirm="Êtes vous sûr de vouloir supprimer ce gossip?" data-method="DELETE">Supprimer</a>
       </div>
     </div>
