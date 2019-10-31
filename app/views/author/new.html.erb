@@ -9,15 +9,15 @@
   <br /> <br />
 
   <%= label_tag 'Nom' %>
-  <%= text_area_tag 'last_name' %>
+  <%= text_field_tag 'last_name' %>
   <br /> <br />
 
   <%= label_tag 'Age' %>
-  <%= text_area_tag 'age' %>
+  <%= text_field_tag 'age' %>
   <br /> <br />
 
   <%= label_tag 'Email' %>
-  <%= text_area_tag 'email' %>
+  <%= text_field_tag 'email' %>
   <br /> <br />
 
   <%= label_tag 'Description' %>
@@ -25,11 +25,11 @@
   <br /> <br />
 
   <%= label_tag 'Password' %>
-  <%= text_area_tag 'password' %>
+  <%= password_field_tag 'password', nil, class: 'masked_input_field'%>
   <br /> <br />
 
   <%= label_tag 'Confirm Password' %>
-  <%= text_area_tag 'password_confirmation' %>
+  <%= password_field_tag 'password_confirmation', nil, class: 'masked_input_field'%>
   <br /> <br />
 
   <%= submit_tag "M'inscrire" %>

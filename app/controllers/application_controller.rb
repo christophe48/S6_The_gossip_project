@@ -7,4 +7,9 @@ class ApplicationController < ActionController::Base
       redirect_to new_session_path
     end
   end
+
+  def compare_user(session_id, user_id)
+    return session_id == user_id
+  end
+
 end

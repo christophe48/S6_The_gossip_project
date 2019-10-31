@@ -30,20 +30,25 @@ class GossipsController < ApplicationController
   end
 
   def update
-    @gossipp = Gossip.find(params[:id])
-    if @gossipp.update(title: params[:title], content: params[:content])
-      redirect_to gossips_path
-    else
-      render :edit
+    @gossip = Gossip.find(params[:id])
+  #j'applique la modif à moins que compare_user est faux (voir applicationController)
+    unless compare_user(session[:user_id], @gossip.user_id) == false
+      if @gossip.update(title: params[:title], content: params[:content])
+        redirect_to gossips_path
+      else
+        render :edit
+      end
     end
   end
 
   def destroy
-    @gossipp = Gossip.find(params[:id])
-    if @gossipp.destroy
-        redirect_to gossips_path
-    else
-      render :show
+    @gossip = Gossip.find(params[:id])
+    unless compare_user(session[:user_id], @gossip.user_id) == false
+      if @gossip.destroy
+          redirect_to gossips_path
+      else
+        render :show
+      end
     end
   end
 end
