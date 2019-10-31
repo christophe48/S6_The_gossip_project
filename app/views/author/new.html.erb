@@ -1,0 +1,33 @@
+<%= form_tag url_for(action: 'create'), method: "post" do %>
+
+  <%= label_tag 'Prenom' %>
+  <%= text_field_tag 'first_name' %>
+  <br /> <br />
+
+  <%= label_tag 'Nom' %>
+  <%= text_area_tag 'last_name' %>
+  <br /> <br />
+
+  <%= label_tag 'Age' %>
+  <%= text_area_tag 'age' %>
+  <br /> <br />
+
+  <%= label_tag 'Email' %>
+  <%= text_area_tag 'email' %>
+  <br /> <br />
+
+  <%= label_tag 'Password' %>
+  <%= text_area_tag 'password' %>
+  <br /> <br />
+
+  <%= label_tag 'Confirm Password' %>
+  <%= text_area_tag 'password_confirmation' %>
+  <br /> <br />
+
+  <%= label_tag 'Description' %>
+  <%= text_area_tag 'description' %>
+  <br /> <br />
+
+  <%= submit_tag "M'inscrire" %>
+
+<% end %>

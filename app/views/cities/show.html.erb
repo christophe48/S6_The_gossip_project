@@ -1,0 +1,23 @@
+<div class="card text-center" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Ville : <%= @cities.name %></h5>
+  </div>
+</div>
+
+<br>
+
+  <div class="">
+  <% a = @users.where(city: @cities.id) %>
+  <p>Liste des potins de la ville</p>
+  <% a.each do |t|%>
+      <div class="card mx-auto" style="width: 18rem;"">
+        <div class="card-body">
+          <h5 class="card-title"><%=t.first_name%></h5>
+          <% g = @gossip.where(user: t.id)%>
+          <% g.each do |t| %>
+          <p class="card-text"><%= t.content %></p>
+          <% end %>
+        </div>
+      </div>
+      <%end%>
+    </div>
