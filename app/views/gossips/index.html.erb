@@ -22,12 +22,9 @@
         <p class="card-text"><%= t.content %></p>
         <p class="card-text text-muted">Posted by <%= @user.find(t.user_id).first_name%></p>
         <a class="btn btn-outline-success" href="<%= gossip_path(t) %>">Voir plus</a>
-        <% if current_user%>
-        <a href="<%= gossip_path(t) %>" class="btn btn-danger" data-confirm="Êtes vous sûr de vouloir supprimer ce gossip?" data-method="DELETE">Supprimer</a>
-        <% end %>
       </div>
     </div>
-    <% end %>
+<% end %>
   </div>
   </div>
 <br><br>

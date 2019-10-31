@@ -10,6 +10,7 @@
         <h6 class="card-subtitle mb-2 text-muted"><%= link_to @user.find(@gossip.user_id).first_name ,author_path(@gossip.user_id)%></h6>
         <p class="card-text"><%= @gossip.content %></p>
         <p class="card-text"> ville : <%=link_to "#{@city.find(@user.find(@gossip.user_id).city_id).name}", city_path(@user.find(@gossip.user_id).city_id) %></p>
+        <% if current_user && (session[:user_id] == @gossip.user_id) %>
         <a class="btn btn-outline-danger" href="<%= edit_gossip_path %>">Modifier le gossip</a>
         <br/><br/>
         <%= form_tag url_for(action: 'destroy'), method: "DELETE" do %>
@@ -17,7 +18,7 @@
            <%= submit_tag "Supprimer le gossip" %>
 
        <% end %>
-
+       <% end %>
 
       </div>
     </div>
