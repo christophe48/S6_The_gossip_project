@@ -14,12 +14,13 @@ body
           <li style="color:red;"><%= message %></li>
         <% end %>
       </ul>
+    <%else flash[:success] %>
 <% end %>
 
 <br>
 <br>
 <p> Modifie ton gossip </p>
-<%= form_tag url_for(action: 'update'), method: "patch" do %>
+<%= form_tag  url_for(action: 'update'), method: "patch" do %>
 
   <%= label_tag 'Title' %>
   <%= text_field_tag 'title' %>

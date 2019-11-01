@@ -8,6 +8,11 @@ body
 
 <body>
 <center>
+  <% if flash[:success] %>
+ <div class="alert alert-success" role="alert">
+ <div class="success"><%= flash[:success]%></div>
+ </div>
+<% end %>
 <br><br>
 <div class="card card p-3 shadow" style="width: 18rem;">
   <img class="card-img-top" src="https://img.huffingtonpost.com/asset/5da6cd98210000140f34a123.jpeg?cache=kQdUrib9K7&ops=scalefit_630_noupscale" alt="Card image cap">

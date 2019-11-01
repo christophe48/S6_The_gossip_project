@@ -6,6 +6,17 @@ body
    background-attachment:fixed;}
 </style>
 
+<% if flash[:alert] %>
+   <div class="alert alert-danger" role="alert">
+   <h4 class="alert-heading">Vous n'avez pas pu vous connecter</h4>
+   <hr>
+
+ <% end %>
+
+
+
+<p id="alert"><%= alert %></p>
+
 <body>
 <center>
 <br/>

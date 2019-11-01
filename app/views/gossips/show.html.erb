@@ -7,8 +7,12 @@ body
 </style>
 
 <body>
-  <% tab_date = ["13/01/2019", "25/11/2007", "12/09/2018", "23/05/2006"] %>
   <br><br>
+  <center>   <% if flash[:success] %>
+   <div class="alert alert-success" role="alert">
+   <div class="success"><%= flash[:success]%></div>
+   </div>
+  <% end %>
   <% h = @gossip.user_id %>
     <div class="card text-center mx-auto" style="width: 18rem;">
       <div class="card-body">
@@ -30,4 +34,5 @@ body
 
       </div>
     </div>
+  </center>
 </body>
