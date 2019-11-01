@@ -5,6 +5,9 @@ class Gossip < ApplicationRecord
 	has_many :tag_gossips
 	has_many :tags, through: :tag_gossip
 
+	# un gossip peut avoir plusieur commentaires
+	has_many :comments
+
 #Validation titre
 	validates :title, presence: { message: "Le titre doit être renseigné"}
 

@@ -1,2 +1,0 @@
-class CreatePrivateMessage < ApplicationRecord
-end

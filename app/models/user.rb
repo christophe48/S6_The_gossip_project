@@ -6,6 +6,9 @@ class User < ApplicationRecord
 	#qu'un user peut envoyer plusieur message et recevoir plusieur message
 	has_many :sent_messages, foreign_key: 'sender_id', class_name: "MessagePrive"
 	has_many :received_messages, foreign_key: 'recipient_id', class_name: "MessagePrive"
+	#un user peut écrire plusieur commentaires
+	has_many :comments
+	
 	has_secure_password
 	validates :password, presence: true, length: { minimum: 6 }
 

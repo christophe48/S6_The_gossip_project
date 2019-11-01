@@ -5,7 +5,8 @@ Rails.application.routes.draw do
    resources :author
    resources :cities
    resources :sessions, only: [:new, :create, :destroy]
-
+   resources :comments
+   
    root 'gossips#index'
    get '/static_pages/team', to: 'static_pages#team', as: 'team'
    get '/static_pages/contact', to: 'static_pages#contact', as: 'contact'
