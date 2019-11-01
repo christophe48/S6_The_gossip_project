@@ -22,15 +22,15 @@ class GossipsController < ApplicationController
 
     if @gossip.save # essaie de sauvegarder en base @gossip
       flash[:success] = "Le gossip a bien été répendu"
-      redirect_to gossips_path
-    else
+      redirect_to gossip_path(@gossip)
+        else
       flash.now[:danger] = "Erreur, Gossip non crée"
       render 'gossips/new'# sinon, il render la view new (qui est celle sur laquelle on est déjà)
     end
   end
 
   def edit
-    @gossip = current_user
+    @gossip = Gossip.find(params[:id])
     # Méthode qui récupère le potin concerné et l'envoie à la view edit (edit.html.erb) pour affichage dans un formulaire d'édition
   end
 
@@ -38,9 +38,9 @@ class GossipsController < ApplicationController
     @gossip = Gossip.find(params[:id])
   #j'applique la modif à moins que compare_user est faux (voir applicationController)
     unless compare_user(session[:user_id], @gossip.user_id) == false
-      if @gossip.update(title: params[:title], content: params[:content])
+      if @gossip.update(title: params[:gossip][:title], content: params[:gossip][:content])
         flash[:success] = "Le gossip a bien été modifié"
-        redirect_to gossips_path
+        redirect_to gossip_path(@gossip)
       else
         flash.now[:danger] = "Le gossip n'a pas été modifié"
         render :edit
