@@ -27,7 +27,27 @@ body
     <a class="btn btn-outline-danger" href="<%= edit_author_path %>"> Modifie ton profil </a>
     <% end %>
     <br/><br/>
-
+    <h3 class="text-center">Mes gossips</h3>
   </div>
 </div>
+    <% a = @gossips.where(user_id: params[:id]) %>
+    <div class="container mx-auto">
+    <div class="card-columns">
+    <% a.each do |t|%>
+        <div class="card card p-3 shadow" style="width: 18rem;"">
+          <img class="card-img-top" src="https://is3-ssl.mzstatic.com/image/thumb/Podcasts113/v4/dc/27/a1/dc27a1eb-2307-fe47-342e-6fb84618f5a8/mza_8792713575073991728.jpg/600x600bb.jpg" alt="Card image cap">
+
+          <div class="card-body">
+            <h5 class="card-title text-center"><%=t.title%></h5>
+            <p class="card-text text-center"><%= t.content %></p>
+            <% if current_user.id == @user.id %>
+            <a class="btn btn-outline-danger pull-left" href="<%= edit_gossip_path %>">Modifier</a>
+            <a href="<%= gossip_path(t) %>" class="btn btn-danger clearfix" data-confirm="Êtes vous sûr de vouloir supprimer ce gossip?" data-method="DELETE">Supprimer</a>
+           <% end %>
+           <br/> <br>
+           <a class="btn btn-outline-success pull-right" href="<%= gossip_path(t) %>">Voir la suite..</a>
+          </div>
+        </div>
+    <% end %>
+        <br><br>
 </body>

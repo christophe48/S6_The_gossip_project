@@ -6,29 +6,37 @@ body
    background-attachment:fixed;}
 </style>
 
+<center>
 <div class="card text-center" style="width: 18rem;">
+  <img class="card-img-top" src="http://www.myurbanr.com/wp-content/uploads/2018/05/Meilleurs-endroits-pour-courir-%C3%A0-Montpellier.jpg" alt="Card image cap">
   <div class="card-body">
-    <h5 class="card-title">Ville : <%= @cities.name %></h5>
+    <h5 class="card-title">Ville : <%= @city.name %></h5>
   </div>
 </div>
 
 <br>
 <body>
-  <center>
+
   <div class="">
-  <% a = @users.where(city: @cities.id) %>
-    <p>Liste des potins de la ville</p>
+  <% a = @users.where(city: @city.id) %>
+    <h1>Liste des potins de la ville par auteurs</h1>
+    <div class="container mx-auto">
+    <div class="card-columns">
   <% a.each do |t|%>
-      <div class="card mx-auto" style="width: 18rem;"">
-        <div class="card-body">
-          <h5 class="card-title"><%=t.first_name%></h5>
-          <% g = @gossip.where(user: t.id)%>
+  <div class="card card p-3 shadow" style="width: 18rem;"">
+    <img class="card-img-top" src="https://is3-ssl.mzstatic.com/image/thumb/Podcasts113/v4/dc/27/a1/dc27a1eb-2307-fe47-342e-6fb84618f5a8/mza_8792713575073991728.jpg/600x600bb.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h6 class="card-subtitle mb-2 text-muted"><%= link_to t.first_name ,author_path(t)%></h6>
+          <% g = @gossips.where(user: t.id)%>
           <% g.each do |t| %>
-          <p class="card-text"><%= t.content %></p>
+          <h5 class="card-title text-center"><%=t.title%></h5>
+          <p class="card-text text-center"><%= t.content %></p>
+          <p> ----------------------------------------</p>
           <% end %>
         </div>
       </div>
       <%end%>
     </div>
-  </center>
+
 </body>
+</center>
