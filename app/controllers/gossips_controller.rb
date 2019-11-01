@@ -22,7 +22,7 @@ class GossipsController < ApplicationController
 
     if @gossip.save # essaie de sauvegarder en base @gossip
       flash[:success] = "Le gossip a bien été répendu"
-      redirect_to gossip_path(@gossip)
+      redirect_to gossips_path
         else
       flash.now[:danger] = "Erreur, Gossip non crée"
       render 'gossips/new'# sinon, il render la view new (qui est celle sur laquelle on est déjà)
@@ -38,7 +38,7 @@ class GossipsController < ApplicationController
     @gossip = Gossip.find(params[:id])
   #j'applique la modif à moins que compare_user est faux (voir applicationController)
     unless compare_user(session[:user_id], @gossip.user_id) == false
-      if @gossip.update(title: params[:gossip][:title], content: params[:gossip][:content])
+      if @gossip.update(title: params[:title], content: params[:content])
         flash[:success] = "Le gossip a bien été modifié"
         redirect_to gossip_path(@gossip)
       else

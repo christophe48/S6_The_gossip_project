@@ -25,19 +25,19 @@ body
 <%= form_tag url_for(action: 'update'), method: "patch" do %>
 
   <%= label_tag 'Prenom' %>
-  <%= text_field_tag 'first_name' %>
+  <%= text_field_tag 'first_name', @user.first_name %>
   <br /> <br />
 
   <%= label_tag 'Nom' %>
-  <%= text_field_tag 'last_name' %>
+  <%= text_field_tag 'last_name', @user.last_name %>
   <br /> <br />
 
   <%= label_tag 'Age' %>
-  <%= text_field_tag 'age' %>
+  <%= text_field_tag 'age', @user.age %>
   <br /> <br />
 
   <%= label_tag 'Description' %>
-  <%= text_area_tag 'description' %>
+  <%= text_area_tag 'description', @user.description %>
   <br /> <br />
 
   <%= submit_tag "Modifier profil" %>
