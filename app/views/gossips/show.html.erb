@@ -28,10 +28,29 @@ body
         <%= form_tag url_for(action: 'destroy'), method: "DELETE" do %>
 
            <%= submit_tag "Supprimer le gossip" %>
-
+<br><br>
        <% end %>
-       <% end %>
+       <%end%>
+       <%= link_to "Commenter", new_gossip_comment_path(@gossip.id), class: "btn btn-primary" %>
+       <br /><br />
 
+       <p>Commentaires du potin :</p>
+         <% @gossip.comments.each do |comment| %>
+             <div class="card">
+               <div class="card-body">
+                 <h6 class="card-subtitle mb-2 text-muted">Auteur : <%= link_to comment.user.first_name, author_path(comment.user.id) %></h6>
+                 <p class="card-text"><%= comment.content %></p>
+                <% if current_user && (session[:user_id] == comment.user_id) %>
+                 <%= link_to "Modifier le commentaire", edit_gossip_comment_path(comment.id), class: "btn btn-success" %>
+
+                 <%# link_to "Supprimer", gossip_comment_path(params), method: :delete, class: "btn btn-danger" %>
+
+
+               <% end %>
+
+               </div>
+             </div>
+         <% end %>
       </div>
     </div>
   </center>

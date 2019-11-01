@@ -1,0 +1,23 @@
+<style>
+body
+{background-image: url('http://4everstatic.com/images/abstrait/fond-de-couleur-220805.jpg');
+   background-repeat: no-repeat;
+   background-size:cover;
+   background-attachment:fixed;}
+</style>
+
+<body style="color:white;">
+  <center>
+    <br>
+    <p> Modifie ton commentaire </p>
+    <%= form_tag  url_for(action: 'update'), method: "patch" do %>
+
+      <%= label_tag '' %>
+      <%= text_area_tag 'content', @comment.content %>
+      <br /> <br />
+
+      <%= submit_tag "Modifier le commentaire" %>
+
+    <% end %>
+  </center>
+</body>

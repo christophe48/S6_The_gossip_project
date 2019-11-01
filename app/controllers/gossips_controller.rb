@@ -10,6 +10,7 @@ class GossipsController < ApplicationController
     @gossip = Gossip.find(params[:id])
     @user = User.all
     @city = City.all
+    @comment = Comment.all
   end
 
   def new
@@ -52,12 +53,11 @@ class GossipsController < ApplicationController
     @gossip = Gossip.find(params[:id])
     unless compare_user(session[:user_id], @gossip.user_id) == false
       if @gossip.destroy
-        flash.now[:danger] = "Le gossip a été supprimé"
+        flash[:success] = "Le gossip a été supprimé"
           redirect_to gossips_path
       else
         render :show
       end
-
     end
   end
 end
